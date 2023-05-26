@@ -9,8 +9,7 @@ def load_model():
 def preprocess():
     pass
 
-@predict.route('/predict')
-@predict.route('/predict.html')
+@predict.route('/')
 def prediction():
     return render_template("predict.html")
 

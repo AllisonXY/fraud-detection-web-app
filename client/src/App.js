@@ -1,31 +1,13 @@
 import React, {useState, useEffect} from 'react'
+import ReactRouter from "./Router";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
-function App() {
-
-  const [data, setData] = useState([{}])
-
-  useEffect(() => {
-    fetch("/predict").then(
-      res => res.json()
-    ).then(
-      data => {
-        setData(data)
-        // check if the data is correctly fetched 
-        // console.log(data)
-      }
-    )
-  }, [])
+export default function App() {
 
   return (
-    <div>
-      {(typeof data.transactions == "undefined") ? (
-        <p> loading </p>
-      ): 
-      (data.transactions.map((transactions, i) => (
-        <p key={i}> transaction: {transactions}</p>
-      )))}
+    <div className="App mb-4">
+      <ReactRouter />
     </div>
   );
 }
-
-export default App;

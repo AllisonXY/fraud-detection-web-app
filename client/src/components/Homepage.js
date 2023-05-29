@@ -1,30 +1,22 @@
-import React from "react";
-import axios from 'axios';
-import {useState, useEffect } from 'react';
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Homepage() {
-    const [data, setData] = useState([{}])
+export default function Home() {
+  const baseURL = "http://192.168.0.14:5000/";
 
-    useEffect(() => {
-        //fetch("/predict").then(res => res.json()).then(
-        //data => {
-            //setData(data)
-            // check if the data is correctly fetched 
-            // console.log(data)
-        //})
-    }, [])
+  return (
+    <>
+      <header>
+        <h1>Home Page</h1>
+      </header>
 
-    return (
-        <div>
-            {(typeof data.transactions == "undefined") ? (
-                <p> loading </p>
-            ): 
-            (data.transactions.map((transactions, i) => (
-                <p key={i}> transaction: {transactions}</p>
-            )))}
-        </div>
-    );
-}
+      <main>
+        <p>Welcome to Fraud detection web app.</p>
+        <a href={baseURL + "predict"} id="predictionLink">Prediction Page</a>
+      </main>
+    </>
+  );
+} 
 
-
+  
 

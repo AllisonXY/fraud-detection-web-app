@@ -18,9 +18,9 @@ export default function Header() {
         data-spy="affix" data-offset-top="20">
         <div className="container">
           <Navbar.Brand href="#">
-            {/* image must be in public folder */}
+            {/* image must be in public folder
             <img src="logo.png" width="130" height="100"  
-                 className="d-inline-block align-top" alt="Logo"/>
+                 className="d-inline-block align-top" alt="Logo"/> */}
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarSupportedContent" />
           <Navbar.Collapse id="navbarSupportedContent">

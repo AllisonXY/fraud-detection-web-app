@@ -7,18 +7,54 @@ import '../assets/vendors/owl-carousel/css/owl.theme.default.css';
 import '../assets/css/ollie.css';
 
 export default function Home() {
-  const baseURL = "http://192.168.0.14:5000/";
 
-  // add carousel 
   return (
-    <>
-      <header>
-        <h1>Home Page</h1>
-      </header>
+    <main className="header mb-5">
+      <div className="overlay"></div>
+      <Carousel fade className='carousel' prevLabel={null} nextLabel={null} indicators={false}>
+        <Carousel.Item>
+          <div className="carousel-caption d-none d-md-block text-center">
+            <h1 className="carousel-title">We Detect <br/> Fraudulant Insurance Claims </h1>
+            <button className="btn btn-primary btn-rounded">Learn More</button>
+          </div>
+        </Carousel.Item>
+        <Carousel.Item>
+          <div className="carousel-caption d-none d-md-block text-center">
+            <h1 className="carousel-title">We Unmask Deception <br/> Uphold Integrity</h1>
+            <button className="btn btn-primary btn-rounded">Learn More</button>
+          </div>
+        </Carousel.Item>
+        <Carousel.Item>
+          <div className="carousel-caption d-none d-md-block text-center">
+            <h1 className="carousel-title">We Protect <br/> Your Business Interests</h1>
+            <button className="btn btn-primary btn-rounded">Learn More</button>
+          </div>
+        </Carousel.Item>
+      </Carousel>
 
-      <main>
-        <p>Pending text and images about fraud detection</p>
-      </main>
-    </>
+      <div className="infos container mb-4 mb-md-2">
+        <div className="socials">
+          <div className="row justify-content-between">
+            <div className='col'>
+              <a className="d-block subtitle">C348 Group</a>
+              <a className="d-block subtitle">Awesome Services As Always</a>
+            </div>
+            <div className="col">
+              <a className="d-block subtitle"><i className="ti-microphone pr-2" /> (123) 456-7890</a>
+              <a className="d-block subtitle"><i className="ti-email pr-2" /> info@wiley.com</a>
+            </div>
+            <div className="col">
+              <h6 className="subtitle font-weight-normal mb-2">Social Media</h6>
+              <div className="social-links">
+                <a href="#" className="link pr-1"><i className="ti-facebook" /></a>
+                <a href="#" className="link pr-1"><i className="ti-twitter-alt" /></a>
+                <a href="#" className="link pr-1"><i className="ti-google" /></a>
+                <a href="#" className="link pr-1"><i className="ti-instagram" /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   );
 }

@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  padding: 2%;
+  width: 97%;
+  margin: 1% auto
 }
 
 .App-header {
@@ -14,27 +15,48 @@
   color: white;
 }
 
+.logo {
+  width: 40%
+}
+
+.file-claim {
+  background-color: #f06161;
+  font-size: 24px;
+  margin: 10% auto;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 5% 10%;
+  border-radius: 5px;
+}
+
+/* HOMEPAGE */
+.carousel-inner {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+/* FOOTER */
 .footer {
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 97%;
   /* Set the fixed height of the footer here */
   height: 30px;
+  padding: 5px 0;
   background-color: #f5f5f5;
   text-align: center;
 }
 
+/* FRAUD FORM */
 form {
-  width: 60%;
+  width: 80%;
   margin: auto;
 }
 
 fieldset {
   text-align: left;
   padding: 3% 5%;
-  /* border: 1.5px solid black;
-  border-radius: 5px; */
-  
   margin: 2% auto;
 }
 
@@ -49,15 +71,4 @@ label {
 
 .form-group {
   margin: 1% 0%
-}
-
-.grid {
-  /* display: grid;
-  grid-template-columns: 1.5fr 3fr;
-  grid-gap: 20px;
-  padding: 1%; */
-}
-
-input[type=radio] {
-  /* margin: 2% 5% */
 }

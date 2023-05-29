@@ -7,18 +7,19 @@ export default function About() {
   return (
     <>
       <section className="section" id="about">
-        <div className="container">
+        <div className="container my-2 mx-auto px-5">
           <div className="row">
-            <div className="col-md-4">
-              <h3 className="section-title">About Insurance Fraud</h3>
-              <p>
-                Facts about Insurance Fraud
+            <div className="col-md-6">
+              <h3 className="section-title display-4 my-4">About Insurance Fraud</h3>
+              <p className='my-5'>
+              Vehicle insurance fraud involves conspiring to make false or exaggerated claims involving property damage or personal injuries following an accident.
               </p>
-              {/* TODO: link to another page */}
-              <a href="javascript:void(0)">Read more...</a>
+              <p className='my-5'>
+              Some common examples include staged accidents where fraudsters deliberately “arrange” for accidents to occur; the use of phantom passengers where people who were not even at the scene of the accident claim to have suffered grievous injury, and make false personal injury claims where personal injuries are grossly exaggerated.
+              </p>
             </div>
 
-            <div className="col-md-8">
+            <div className="col-md-6">
               <div className="row">
                 <div className="col-sm-6 col-md-6">
                   <div className="widget">

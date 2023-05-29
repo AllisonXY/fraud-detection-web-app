@@ -24,10 +24,10 @@ Run `cd frontend` then `npm-start`. See if the project successfully runnning on 
 If need to install packages, run `npm install --save <PACKAGE NAME>` and restart.  
 After modification, simply save all and refresh the page. No need to restart :)
 ### Backend
-Run `flask-server` then `python main.py`. The backend can be accessed at http://localhost:5000.
+Run `cd backend` then `python main.py`. The backend can be accessed at http://localhost:5000.
 
 ### Guide to Using CSS Templates
-CSS templates and relevant modules used for styling are placed in "frontend/src/assets" folder, where index and components.html provide reference on how to incorporate them into our program. 
+CSS templates and relevant modules used for styling are placed in "frontend/src/assets" folder, where index and components.html provide reference on how to incorporate them into our program. Live demo is available at https://www.free-css.com/free-css-templates/page278/ollie. 
  
 ### Development Environment
 * Visual Studio Code

@@ -1,9 +1,15 @@
 import React from 'react';
+import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../assets/vendors/themify-icons/css/themify-icons.css';
+import '../assets/vendors/owl-carousel/css/owl.carousel.css';
+import '../assets/vendors/owl-carousel/css/owl.theme.default.css';
+import '../assets/css/ollie.css';
 
 export default function Home() {
   const baseURL = "http://192.168.0.14:5000/";
 
+  // add carousel 
   return (
     <>
       <header>
@@ -11,12 +17,8 @@ export default function Home() {
       </header>
 
       <main>
-        <p>Welcome to Fraud detection web app.</p>
-        <a href={baseURL + "predict"} id="predictionLink">Prediction Page</a>
+        <p>Pending text and images about fraud detection</p>
       </main>
     </>
   );
-} 
-
-  
-
+}

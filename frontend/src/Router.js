@@ -8,6 +8,7 @@ import Footer from "./components/partial/Footer";
 // Pages
 import Home from "./components/Homepage";
 import FraudCheck from "./components/FraudCheck";
+import About from "./components/About";
 
 export default class ReactRouter extends React.Component {
   render() {
@@ -17,6 +18,7 @@ export default class ReactRouter extends React.Component {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/fraud-check" element={<FraudCheck />} />
+          <Route path="/about" element={<About />} />
         </Routes>
         <Footer />
       </BrowserRouter>

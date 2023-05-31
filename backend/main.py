@@ -9,7 +9,7 @@ import mysql.connector
 db_config = {
     "host": "localhost",
     "user": "root",
-    "password": "111",
+    "password": "1",
     "database": "Fraud_detect"
 }
 
@@ -37,12 +37,20 @@ def predict_page():
 def about_page():
     return "about" 
 
-@app.route('/api/contact', methods=['POST'])
+@app.route('/api/contact', methods=['POST', 'GET'])
 def create_contact():
-    id = 1
     name = 'ziqian'
     email = 'someemail@gmail.com'
     inquiry = "nothing we are awesome"
-    query = ''
+    insert_data = "INSERT INTO Contacts (username, email, inquiry) Values (%s, %s, %s)"
+    try:
+        cursor.execute(insert_data, (name, email, inquiry))
+        connection.commit()
+        return "Success", 200
+    except Exception as e:
+        return e
+    
+
+    
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)

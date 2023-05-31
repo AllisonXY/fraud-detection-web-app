@@ -16,7 +16,7 @@ export default function Header() {
       <Navbar id="scrollspy" className="navbar-light bg-light navbar-expand-lg fixed-top my-0" data-spy="affix" data-offset-top="20">
         <Container>
           <Navbar.Brand className="mt-0 mb-5 py-0" href="/">
-            <img src="logo.png" className="logo" alt="Logo"/>
+            <img src="logo.png" className="logo rounded" alt="Logo"/>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarSupportedContent" />
           <Navbar.Collapse id="navbarSupportedContent">

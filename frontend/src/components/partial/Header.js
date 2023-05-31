@@ -31,7 +31,7 @@ export default function Header() {
                 <Nav.Link href="/our-team" className="h3 mx-4">Our Team</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="/fraud-check" className="h3 mx-4 file-claim">File a Claim</Nav.Link>
+                <Nav.Link href="/file-claim" className="h3 mx-4 file-claim">File a Claim</Nav.Link>
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link href="/contact-us" className="h3 mx-4">Contact Us</Nav.Link>

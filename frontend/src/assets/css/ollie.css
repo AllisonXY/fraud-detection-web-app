@@ -11150,12 +11150,13 @@ p {
 }
 
 .textmonial-item .avatar {
-  min-width: 150px;
-  max-width: 150px;
-  min-height: 150px;
-  max-height: 150px;
+  min-width: 200px;
+  max-width: 200px;
+  min-height: 200px;
+  max-height: 200px;
   border-radius: 50%;
   margin-right: 40px;
+  object-fit: cover;
 }
 
 .textmonial-item .des {
@@ -11175,8 +11176,19 @@ p {
   margin-top: -5px;
 }
 
+
+.textmonial-item p {
+  margin-bottom: 10px;
+  text-align: left;
+}
 .textmonial-item .name {
   margin-bottom: 3px;
+  text-align: left;
+}
+
+.textmonial-item .xs-font {
+  margin-bottom: 3px;
+  text-align: left;
 }
 
 @media (max-width: 767.98px) {

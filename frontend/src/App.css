@@ -72,3 +72,9 @@ label {
 .form-group {
   margin: 1% 0%
 }
+
+.alert {
+  padding: 2% 2%;
+  text-align: center;
+  margin: 2% auto;
+}

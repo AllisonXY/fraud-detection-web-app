@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_file
+from flask import Flask, render_template, send_file, request
 from prediction import predict
 from flask import request
 app = Flask(__name__) 
@@ -22,10 +22,16 @@ cursor = connection.cursor()
 def main():
     return "hello" 
 
-@app.route("/predict")
+@app.route("/predict", methods=['POST'])
 def predict_page():
-    predict()
-    return "predict" # TODO: send response to frontend
+   if request.method == 'POST':
+        formData = request.get_data()
+        print(formData)
+        # Run Model and Return True Or False
+        # predict()
+        # return "predict" # TODO: send response to frontend
+        return "Success", 200  
+    
 
 @app.route("/about")
 def about_page():
@@ -39,5 +45,4 @@ def create_contact():
     inquiry = "nothing we are awesome"
     query = ''
 if __name__ == '__main__':
-    # run app at http://192.168.0.14:5000/
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)

@@ -9,7 +9,7 @@ def main():
 @app.route("/predict", methods=['POST'])
 def predict_page():
    if request.method == 'POST':
-        formData = request.get_data()
+        formData = request.get_json()
         print(formData)
         # Run Model and Return True Or False
         # predict()

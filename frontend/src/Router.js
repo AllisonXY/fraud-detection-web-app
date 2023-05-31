@@ -7,7 +7,7 @@ import Footer from "./components/partial/Footer";
 
 // Pages
 import Home from "./components/Homepage";
-import FraudCheck from "./components/FraudCheck";
+import FileClaim from "./components/FileClaim";
 import About from "./components/About";
 import OurTeam from "./components/OurTeam";
 // import Contact from "./components/contact";
@@ -20,7 +20,7 @@ export default class ReactRouter extends React.Component {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/fraud-check" element={<FraudCheck />} />
+          <Route path="/file-claim" element={<FileClaim />} />
           <Route path="/our-team" element={<OurTeam />} />
           {/* <Route path="/contact" element={<Contact />} /> */}
         </Routes>

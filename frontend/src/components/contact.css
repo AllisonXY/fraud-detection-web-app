@@ -10,7 +10,7 @@ body{
     box-sizing: border-box;
 }
 
-form{
+.for{
     display: block;
     background-color: #fff;
     box-shadow: 1px 1px 3px 2px #ddd;
@@ -20,7 +20,7 @@ form{
     padding: 20px 40px;
 }
 
-form input, textarea{
+.forminp{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -31,11 +31,11 @@ form input, textarea{
     border: 1px solid #ddd ;
 }
 
-form span{
+.formspa{
     color: rgb(29, 185,237)
 }
 
-form button{
+.formbut{
     height: 30px;
     width: 80px;
     margin: 10px;

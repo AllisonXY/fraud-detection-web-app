@@ -10,7 +10,7 @@ import Home from "./components/Homepage";
 import FraudCheck from "./components/FraudCheck";
 import About from "./components/About";
 import OurTeam from "./components/OurTeam";
-// import Contact from "./components/contact";
+import Contact from "./components/Contact";
 
 export default class ReactRouter extends React.Component {
   render() {
@@ -22,7 +22,7 @@ export default class ReactRouter extends React.Component {
           <Route path="/about" element={<About />} />
           <Route path="/fraud-check" element={<FraudCheck />} />
           <Route path="/our-team" element={<OurTeam />} />
-          {/* <Route path="/contact" element={<Contact />} /> */}
+          <Route path="/contact-us" element={<Contact />} />
         </Routes>
         <Footer />
       </BrowserRouter>

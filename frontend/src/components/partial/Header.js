@@ -33,6 +33,9 @@ export default function Header() {
               <Nav.Item>
                 <Nav.Link href="/fraud-check" className="h3 mx-4 file-claim">File a Claim</Nav.Link>
               </Nav.Item>
+              <Nav.Item>
+                <Nav.Link href="/contact-us" className="h3 mx-4">Contact Us</Nav.Link>
+              </Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Container>

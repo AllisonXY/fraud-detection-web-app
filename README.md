@@ -13,14 +13,16 @@ a. Install Node.js and npm (Node Package Manager) from https://nodejs.org/en
 b. In the terminal, run:   
 `npm install react-scripts --save`  
 `npm install --save react-bootstrap bootstrap@3`  
-`npm install react-bootstrap bootstrap`  
+`npm install --save react-hook-form`
 `pip install flask`   
+`pip install mysql-connector-python`   
+
 (Make sure to have Python above v3.5, Flask above v2.0)
 
 3.Create a split terminal to run backend and frontend individually and concurrently: 
 
 ### Frontend:
-Run `cd frontend` then `npm-start`. See if the project successfully runnning on http://localhost:3000 without error.  
+Run `cd frontend` then `npm start`. See if the project successfully runnning on http://localhost:3000 without error.  
 If need to install packages, run `npm install --save <PACKAGE NAME>` and restart.  
 After modification, simply save all and refresh the page. No need to restart :)
 ### Backend

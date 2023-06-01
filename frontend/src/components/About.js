@@ -1,20 +1,14 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../assets/vendors/themify-icons/css/themify-icons.css';
-import '../assets/vendors/owl-carousel/css/owl.carousel.css';
-import '../assets/vendors/owl-carousel/css/owl.theme.default.css';
-import '../assets/css/ollie.css';
 
 export default function About() {
-  const baseURL = "http://localhost:3000/";
 
   return (
     <>
-      <section className="section" id="about">
+      <section className="section py-5" id="about">
         <div className="container my-2 mx-auto px-5">
           <div className="row">
             <div className="col-md-6">
-              <h3 className="section-title display-4 my-4">Insurance Claim Fraud</h3>
+              <h3 className="section-title display-4 my-5">Insurance Claim Fraud</h3>
               <p className='my-5'>
                 Insurance fraud is a deliberate deception perpetrated against or by an insurance company for financial gain.
               </p>
@@ -74,23 +68,23 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section py-5">
         <div className="container">
-          <h3 className="section-title mb-4">Our Services</h3>
+          <h3 className="section-title my-5 display-4">Our Services</h3>
           <p> C348 Group is committed to deterring fraud. Our dedicated team of fraud experts also works closely with industry associations, government and law enforcement to help protect you against fraud 24/7.</p>
-          <div className="row text-center">
+          <div className="row my-5 text-center">
             <div className="col-lg-4">
-              <a href="javascript:void(0)" className="card border-0 text-dark">
+              <a href="/file-claim" className="card border-0 text-dark">
                 <img className="card-img-top" src="fraud_detection.jpg" alt="Fraud Detection Image" />
                 <span className="card-body">
                   <h4 className="title mt-4">Fraud Detection</h4>
                   <p className="xs-font">Leveraging the next-generation machine learning algorithms, our system can instantly identify inconsistencies and flag suspicious insurance claims, delivering accurate results to keep your business secure and protected.</p>
-                  <a href={`${baseURL}fraud-check`}> Try our Vehicle Insurance Fraud Detector </a>
+                  <a href='/file-claim'> Try our Vehicle Insurance Fraud Detector </a>
                 </span>
               </a>
             </div>
             <div className="col-lg-4">
-              <a href="javascript:void(0)" className="card border-0 text-dark">
+              <a href="/file-claim" className="card border-0 text-dark">
                 <img className="card-img-top" src="fraud_analysis.jpg" alt="Fraud Analysis Image" />
                 <span className="card-body">
                   <h4 className="title mt-4">Fraud Analysis</h4>
@@ -99,7 +93,7 @@ export default function About() {
               </a>
             </div>
             <div className="col-lg-4">
-              <a href="javascript:void(0)" className="card border-0 text-dark">
+              <a href="/file-claim" className="card border-0 text-dark">
                 <img className="card-img-top" src="fraud_consulting.jpg" alt="Fraud Consulting Image" />
                 <span className="card-body">
                   <h4 className="title mt-4">Fraud Consulting</h4>

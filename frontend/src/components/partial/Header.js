@@ -15,26 +15,26 @@ export default function Header() {
     <header id="home">
       <Navbar id="scrollspy" className="navbar-light bg-light navbar-expand-lg fixed-top my-0" data-spy="affix" data-offset-top="20">
         <Container>
-          <Navbar.Brand className="mt-0 mb-5 py-0" href="/">
+          <Navbar.Brand className="mt-0 mb-5 py-0 mx-0" href="/">
             <img src="logo.png" className="logo rounded" alt="Logo"/>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarSupportedContent" />
           <Navbar.Collapse id="navbarSupportedContent">
             <Nav className="ml-auto">
               <Nav.Item>
-                <Nav.Link href="/" className="h3 mx-4">Home</Nav.Link>
+                <Nav.Link href="/" className="h3 mx-2">Home</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="/about" className="h3 mx-4">About</Nav.Link>
+                <Nav.Link href="/about" className="h3 mx-2">About</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="/our-team" className="h3 mx-4">Our Team</Nav.Link>
+                <Nav.Link href="/our-team" className="h3 mx-2">Our Team</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="/file-claim" className="h3 mx-4 file-claim">File a Claim</Nav.Link>
+                <Nav.Link href="/file-claim" className="h3 mx-2 file-claim">File a Claim</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="/contact-us" className="h3 mx-4">Contact Us</Nav.Link>
+                <Nav.Link href="/contact-us" className="h3 mx-2">Contact Us</Nav.Link>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>

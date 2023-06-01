@@ -6,42 +6,30 @@ body{
     background-color: #eee;
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
-.for{
-    display: block;
-    background-color: #fff;
-    box-shadow: 1px 1px 3px 2px #ddd;
-    margin: 100px auto;
-    max-width: 600px;
-    max-height: 700px;
-    padding: 20px 40px;
+.contact-form-container {
+    background-color: #eeeeee;
 }
 
-.forminp{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 10px auto;
-    padding: 10px;
-    font-family: "Poppins";
+.contact-form {
+    margin: 0% auto;
+    width: 70%;
+    padding: 2% 5%;
+}
+
+.form-input {
+    margin: 2% auto;
     background-color: #f3f3f3;
-    border: 1px solid #ddd ;
 }
 
-.formspa{
+.blue-accent{
     color: rgb(29, 185,237)
 }
 
-.formbut{
-    height: 30px;
-    width: 80px;
-    margin: 10px;
-    align-items: center;
-    border: none;
+.form-submit{
     background-color: rgb(29, 185,237);
-    color: #fff;
     cursor: pointer;
 }

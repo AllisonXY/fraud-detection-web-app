@@ -9,11 +9,11 @@ import '../assets/css/ollie.css';
 export default function OurTeam() {
 
   return (
-    <section className="about" id="testmonial">
-      <div class="container">
-        <h3 className="section-title display-4 my-5">Our Team</h3>
-          <h2 className="section-title display-8 my-5">Full Stack Team</h2>
-          <OwlCarousel id="owl-testmonial" className="owl-carousel owl-theme mt-4" items={2} nav={true} loop={true}>
+    <section className="about my-5 pb-5" id="testmonial">
+      <div className="container">
+        <h3 className="section-title display-3 my-5 ">Our Team</h3>
+          <h2 className="section-title display-5 my-5 pt-5">Full Stack Development Team</h2>
+          <OwlCarousel id="owl-testmonial" className="owl-carousel owl-theme my-5" items={2} autoplay={true} loop={true}>
             <div className="item">
               <div className="textmonial-item">
                 <img src='/team-pics/allison.jpeg' alt="Team member picture" className="avatar" />
@@ -86,10 +86,10 @@ export default function OurTeam() {
               </div>
             </div>
           </OwlCarousel>
-        <div>
-            <h2 className="section-title display-8 my-5">Machine Learning Team</h2>
+          <div>
+            <h2 className="section-title display-5 my-5 pt-5">Machine Learning Team</h2>
           </div>
-          <OwlCarousel id="owl-testmonial" className="owl-carousel owl-theme" items={2} nav={true} loop={true}>
+          <OwlCarousel id="owl-testmonial" className="owl-carousel owl-theme my-5" items={2} autoplay={true} loop={true}>
             <div className="item">
               <div className="textmonial-item">
                 <img src='/team-pics/siyuan.jpeg' alt="Team member picture" className="avatar"/>
@@ -151,9 +151,9 @@ export default function OurTeam() {
             </div>
           </OwlCarousel>
           <div>
-            <h2 className="section-title display-8 my-5">DevOps Team</h2>
+            <h2 className="section-title display-5 my-5 pt-5">DevOps Team</h2>
           </div>
-          <OwlCarousel id="owl-testmonial" className="owl-carousel owl-theme" items={2} nav={true} loop={true}>
+          <OwlCarousel id="owl-testmonial" className="owl-carousel owl-theme my-5" items={2} autoplay={true} loop={true}>
             <div className="item">
               <div className="textmonial-item">
                 <img src='/team-pics/harsh.png' alt="Team member picture" className="avatar"/>

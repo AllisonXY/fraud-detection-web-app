@@ -14,7 +14,7 @@ export default function Home() {
       <Carousel fade className='carousel' prevLabel={null} nextLabel={null} indicators={false}>
         <Carousel.Item>
           <div className="carousel-caption d-none d-md-block text-center">
-            <h1 className="carousel-title">We Detect <br/> Fraudulant Insurance Claims </h1>
+            <h1 className="carousel-title">We Detect <br/> Fraudulent Insurance Claims </h1>
             <a href='/about'>
               <button className="btn btn-primary btn-rounded">Learn More</button>
             </a>

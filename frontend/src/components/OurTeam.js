@@ -54,9 +54,9 @@ export default function OurTeam() {
               <div className="textmonial-item">
                 <img src="/team-pics/ziqian.jpeg" alt="Team member picture" className="avatar" />
                 <div className="des">
-                  <p>"I love Harry Potter and my Cat."</p>
+                  <p>"I love Harry Potter and my Cat and my Sharks."</p>
                   <div className="line" />
-                  <h6 className="name">Ziqian Qui</h6>
+                  <h6 className="name">Ziqian Qiu</h6>
                   <h6 className="xs-font">Full Stack Developer</h6>
                 </div>
               </div>

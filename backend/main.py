@@ -9,6 +9,7 @@ import mysql.connector
 db_config = {
     "host": "localhost",
     "user": "root",
+    # change it to your mysql password ;)
     "password": "1",
     "database": "Fraud_detect"
 }
@@ -39,16 +40,19 @@ def about_page():
 
 @app.route('/api/contact', methods=['POST', 'GET'])
 def create_contact():
-    name = 'ziqian'
-    email = 'someemail@gmail.com'
-    inquiry = "nothing we are awesome"
-    insert_data = "INSERT INTO Contacts (username, email, inquiry) Values (%s, %s, %s)"
+    contactData = request.get_json()
+    print(contactData)
+    name = contactData['name']
+    email = contactData['email']
+    phone = contactData['phone']
+    inquiry = contactData['text']
+    insert_data = "INSERT INTO Contacts (username, email, phone, inquiry) Values (%s, %s, %s, %s)"
     try:
-        cursor.execute(insert_data, (name, email, inquiry))
+        cursor.execute(insert_data, (name, email, phone, inquiry))
         connection.commit()
         return "Success", 200
     except Exception as e:
-        return e
+        return str(e)
     
 
     

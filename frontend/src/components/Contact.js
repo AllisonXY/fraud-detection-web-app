@@ -2,18 +2,25 @@ import React from 'react'
 import {useState} from 'react'
 import "./contact.css"
 
-
 const Contact = () => {
     const [data,setData] = useState({name: "", email:"", phone: "", text: ""});
 
     const handleChange = (e) =>{
-        const name = e.target.name;
-        const value = e.target.value;
-        setData({...data, [name]: value})
+        setData({
+            ...data,
+            [e.target.name]: e.target.value,
+          });
     }
 
-    const handleSubmit = (e) =>{
-        e.preventDefault()
+    const handleSubmit = () =>{
+        console.log(data)
+        fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data)
+        })
     }
 
     return (
@@ -23,7 +30,7 @@ const Contact = () => {
             <input className = "forminp" type="email" name="email" id ="" onChange={handleChange} value={data.email} placeholder="Enter email"/>  
             <input className = "forminp" type="phone" name="phone" id ="" onChange={handleChange} value={data.phone} placeholder="Enter phone number"/>  
             <textarea className = "forminp" name="text" id ="" cols="30" onChange={handleChange} value={data.message} rows="10" placeholder="Enter message"></textarea>
-            <button className = "formbut" type="submit"> Submit </button>
+            <button className = "formbut" type="submit" onClick={handleSubmit}> Submit </button>
         </form>
     )
 }

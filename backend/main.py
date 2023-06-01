@@ -1,14 +1,16 @@
 from flask import Flask, render_template, send_file, request
-from prediction import predict, preprocess, empty_df, load_model
-app = Flask(__name__) 
-
+from prediction import predict
+import pandas as pd 
 import mysql.connector
+
+app = Flask(__name__) 
 
 # Replace the following placeholders with your own MySQL credentials
 db_config = {
     "host": "localhost",
-    "user": "root",
-    "password": "1",
+    "port": "3306",
+    "user": "root", 
+    "password": "admin",  # admin
     "database": "Fraud_detect"
 }
 
@@ -21,13 +23,19 @@ cursor = connection.cursor()
 def main():
     return "hello" 
 
+user_data = [['Dec','Honda','Rural','Female','Divorced','Policy Holder',
+             'Sedan - All Perils','Sedan','20000 to 29000','1',
+             '300','none','2 Years','16 to 17',
+             'No','Yes','Internal','1995','Collision']]
+
 @app.route("/predict", methods=['POST', 'GET'])
 def predict_page():
+    # df = predict(user_data)
+    # return df.to_json(orient='split')
    if request.method == 'POST':
         formData = request.get_json()
         print(formData)
-        # Run Model and Return True Or False
-        model=load_model("content/xg_model.pickle") #load model
+        # Run Model and Return True Or Fals
         df=empty_df('content/cleaned_data.csv') #model dataframe
         deductible = int(formData["Deductible"]) 
         result = preprocess(formData.values())

@@ -1,6 +1,5 @@
 from flask import Flask, render_template, send_file, request
-from prediction import predict
-from flask import request
+from prediction import predict, preprocess, empty_df, load_model
 app = Flask(__name__) 
 
 import mysql.connector
@@ -22,15 +21,21 @@ cursor = connection.cursor()
 def main():
     return "hello" 
 
-@app.route("/predict", methods=['POST'])
+@app.route("/predict", methods=['POST', 'GET'])
 def predict_page():
    if request.method == 'POST':
         formData = request.get_json()
         print(formData)
         # Run Model and Return True Or False
-        # predict()
-        # return "predict" # TODO: send response to frontend
-        return "Success", 200  
+        model=load_model("content/xg_model.pickle") #load model
+        df=empty_df('content/cleaned_data.csv') #model dataframe
+        deductible = int(formData["Deductible"]) 
+        result = preprocess(formData.values())
+        prediction = predict(model, df, result, deductible) #run prediction
+        return prediction, 200  
+   if request.method == 'GET':
+    print("Working")
+    return "Form received", 200
     
 
 @app.route("/about")

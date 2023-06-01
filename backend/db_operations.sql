@@ -12,7 +12,7 @@ CREATE TABLE Contacts (
 );
 
 
-drop table Contacts;
+-- drop table Contacts;
 
 select * from Contacts;
 

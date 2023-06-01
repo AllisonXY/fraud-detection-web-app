@@ -3,13 +3,13 @@ from prediction import predict
 import pandas as pd 
 import mysql.connector
 
+
 app = Flask(__name__) 
 
 # Replace the following placeholders with your own MySQL credentials
 db_config = {
     "host": "localhost",
     "user": "root",
-    # change it to your mysql password ;)
     "password": "1",
     "database": "Fraud_detect"
 }

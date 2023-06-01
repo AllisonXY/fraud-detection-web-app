@@ -10,7 +10,7 @@ app = Flask(__name__)
 db_config = {
     "host": "localhost",
     "user": "root",
-    "password": "1",
+    "password": "admin",
     "database": "Fraud_detect"
 }
 
@@ -23,32 +23,32 @@ cursor = connection.cursor()
 def main():
     return "hello" 
 
-user_data = [['Dec','Honda','Rural','Female','Divorced','Policy Holder',
-             'Sedan - All Perils','Sedan','20000 to 29000','1',
-             '300','none','2 Years','16 to 17',
-             'No','Yes','Internal','1995','Collision']]
+
+# user_data = [['Dec','Honda','Rural','Female','Divorced','Policy Holder',
+#              'Sedan - All Perils','Sedan','20000 to 29000','1',
+#              '300','none','2 Years','16 to 17',
+#              'No','Yes','Internal','1995','Collision']]
 
 @app.route("/predict", methods=['POST', 'GET'])
 def predict_page():
-    # df = predict(user_data)
-    # return df.to_json(orient='split')
-   if request.method == 'POST':
-        formData = request.get_json()
-        print(formData)
-        # Run Model and Return True Or Fals
-        df=empty_df('content/cleaned_data.csv') #model dataframe
-        deductible = int(formData["Deductible"]) 
-        result = preprocess(formData.values())
-        prediction = predict(model, df, result, deductible) #run prediction
-        return prediction, 200  
-   if request.method == 'GET':
-    print("Working")
-    return "Form received", 200
+    prediction = predict()  #TODO: pending reponse json
+    return prediction
+
+    # formData = {"hello":"where is form data?"}
+    # if request.method == 'POST':
+    #     formData = request.get_json()
+    #     print(formData)
+    #     prediction = predict(formData)
+    #     # Run Model and Return True Or Fals
+    #     # df=empty_df('content/cleaned_data.csv') #model dataframe
+    #     # deductible = int(formData["Deductible"]) 
+    #     # result = preprocess(formData.values())
+    #     # prediction = predict(model, df, result, deductible) #run prediction
+
+    #     return prediction.to_json(orient='split'), 200    
+    # return formData,200
     
 
-@app.route("/about")
-def about_page():
-    return "about" 
 
 @app.route('/api/contact', methods=['POST', 'GET'])
 def create_contact():

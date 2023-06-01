@@ -13,7 +13,7 @@ export default function About() {
                 Insurance fraud is a deliberate deception perpetrated against or by an insurance company for financial gain.
               </p>
               <p className='my-5'>
-                The Insurance Bureau of Canada estimates that insurance fraud costs up to $9.2 billion yearly. That amount includes estmated fraud costs across several liability areas.
+                The Insurance Bureau of Canada estimates that insurance fraud costs insurance industry up to $9.2 billion yearly. That amount is estimated across several liability areas.
               </p>
             </div>
 
@@ -58,7 +58,7 @@ export default function About() {
                     </div>
                     <div className="infos-wrapper">
                       <h4 className="text-primary">$2.2 bil</h4>
-                      <p>Auto</p>
+                      <p>Auto Insurance</p>
                     </div>
                   </div>
                 </div>

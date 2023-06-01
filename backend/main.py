@@ -10,7 +10,7 @@ app = Flask(__name__)
 db_config = {
     "host": "localhost",
     "user": "root",
-    "password": "admin",
+    "password": "1",
     "database": "Fraud_detect"
 }
 

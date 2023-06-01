@@ -140,9 +140,9 @@ export default function OurTeam() {
 
             <div className="item">
               <div className="textmonial-item">
-                <img src="/team-pics/juhi.jpeg" alt="Team member picture" className="avatar"/>
+                <img src="/team-pics/juhi.png" alt="Team member picture" className="avatar"/>
                 <div className="des">
-                  <p>"Life is either a daring adventure or nothing at all."</p>
+                  <p>"Hakuna Matata."</p>
                   <div className="line" />
                   <h6 className="name">Juhi Shah</h6>
                   <h6 className="xs-font">Machine Learning Engineer</h6>

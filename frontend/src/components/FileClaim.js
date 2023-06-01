@@ -1,11 +1,18 @@
 import React from "react";
-import axios from 'axios';
-import {useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { useForm } from "react-hook-form";
-
+import { Modal, Button } from "react-bootstrap";
+import { IconContext } from "react-icons";
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
+import { RxCrossCircled } from "react-icons/rx";
 
 export default function FraudCheck() {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const [isOpen, setIsOpen] = useState(false);
+  const [isApproved, setIsApproved] = useState(false);
+
+  const handleClose = () => setIsOpen(false);
+  const handleShow = () => setIsOpen(true);
 
   const sexList = ['Male', 'Female'];
   const maritalStatusList = ["Single", "Married", "Divorced", "Widowed"];
@@ -21,7 +28,7 @@ export default function FraudCheck() {
   const VehiclePriceList = ['Less than $20,000', '$20,000 to $29,000', '$30,000 to $39,000', '$40,000 to $59,000', '$60,000 to $69,000', 'More than $69,000']
   const AgeOfVehicleList = ['New', '2 Years', '3 Years', '4 Years', '5 Years', '6 Years', '7 Years', 'More than 7 Years']
 
-  const onSubmit = (data, event) => {
+  const onSubmit = (data) => {
     data.PolicyType = `${data.VehicleCategory} - ${data.BasePolicy}`
     console.log(data)
     fetch("/predict", {
@@ -31,14 +38,49 @@ export default function FraudCheck() {
       },
       body: JSON.stringify(data)
     })
+    .then(response => response.json())
+    .then(data => setIsApproved(data));
+    window.scrollTo(0, 0);
+    handleShow();
   }
 
+const onClick = (event) => {
+  const data = {
+    "AgeOfPolicyHolder": "21 to 25",
+    "Sex": "Female",
+    "MaritalStatus": "Married",
+    "AgentType": "External",
+    "BasePolicy": "Collision",
+    "Deductible": "400",
+    "PastNumberOfClaims": "1",
+    "YearMonth": "2023-04",
+    "AccidentArea": "Urban",
+    "Fault": "Policy Holder",
+    "WitnessPresent": "No",
+    "PoliceReportFiled": "No",
+    "VehicleCategory": "Sport",
+    "VehicleMake": "Saturn",
+    "AgeOfVehicle": "2 Years",
+    "VehiclePrice": "$20,000 to $29,000",
+    "PolicyType": "Sport - Collision"
+  }
+  fetch("/predict", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => setIsApproved(false));
 
-
+  handleShow();
+}
 
   return (
     <div className="container">
       <h1 className="display-3 my-5">File a Claim</h1>
+      <button onClick={onClick}></button>
       <p className="lead text-muted w-75 mx-auto">Fill out the short form below for a quick claim validation! Our machine learning algorithm validates client claims within 60 seconds!</p>
       <form id="FraudForm" className='form mb-5' onSubmit={handleSubmit(onSubmit)}>
         <fieldset className="PolicyHolder border rounded bg-light">
@@ -229,7 +271,36 @@ export default function FraudCheck() {
 
         <button type="submit" className="button btn btn-secondary mb-3" id="submitBtn" name="submit">Submit</button>
       </form>
-    </div>
+
+      <Modal style={isOpen ? {opacity:1} : {opacity:0}} show={isOpen} onHide={handleClose} className="text-center">
+        <Modal.Header>
+          {isApproved && 
+          <Modal.Title>
+            <IconContext.Provider value={{ color: "green", size: '5rem', className: "global-class-name" }}>
+              <div><IoMdCheckmarkCircleOutline className="mx-3"/>Your Claim was Approved!</div>
+            </IconContext.Provider>
+          </Modal.Title>
+          }
+          {!isApproved && 
+          <Modal.Title>
+            <IconContext.Provider value={{ color: "red", size: '5rem', className: "global-class-name" }}>
+              <div><RxCrossCircled className="mx-3"/>Your Claim Does Not Qualify For Pre-Approval</div>
+            </IconContext.Provider>
+          </Modal.Title>
+          }
+        </Modal.Header>
+        {isApproved && 
+          <Modal.Body>Please allow 3-5 business days for processing</Modal.Body>
+        }
+        {!isApproved && 
+          <Modal.Body>Your claim will be escalated to the Fraud Department</Modal.Body>
+        }
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+
+    </div> 
   );
 }
 

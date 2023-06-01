@@ -15,19 +15,26 @@ export default function Home() {
         <Carousel.Item>
           <div className="carousel-caption d-none d-md-block text-center">
             <h1 className="carousel-title">We Detect <br/> Fraudulant Insurance Claims </h1>
-            <button className="btn btn-primary btn-rounded">Learn More</button>
+            <a href='/about'>
+              <button className="btn btn-primary btn-rounded">Learn More</button>
+            </a>
           </div>
         </Carousel.Item>
         <Carousel.Item>
           <div className="carousel-caption d-none d-md-block text-center">
             <h1 className="carousel-title">We Unmask Deception <br/> Uphold Integrity</h1>
             <button className="btn btn-primary btn-rounded">Learn More</button>
+            <a href='/about'>
+              <button className="btn btn-primary btn-rounded">Learn More</button>
+            </a>
           </div>
         </Carousel.Item>
         <Carousel.Item>
           <div className="carousel-caption d-none d-md-block text-center">
             <h1 className="carousel-title">We Protect <br/> Your Business Interests</h1>
-            <button className="btn btn-primary btn-rounded">Learn More</button>
+            <a href='/about'>
+              <button className="btn btn-primary btn-rounded">Learn More</button>
+            </a>
           </div>
         </Carousel.Item>
       </Carousel>
@@ -46,10 +53,10 @@ export default function Home() {
             <div className="col">
               <h6 className="subtitle font-weight-normal mb-2">Social Media</h6>
               <div className="social-links">
-                <a href="#" className="link pr-1"><i className="ti-facebook" /></a>
-                <a href="#" className="link pr-1"><i className="ti-twitter-alt" /></a>
-                <a href="#" className="link pr-1"><i className="ti-google" /></a>
-                <a href="#" className="link pr-1"><i className="ti-instagram" /></a>
+                <a href="/contact-us" className="link pr-1"><i className="ti-facebook" /></a>
+                <a href="/contact-us" className="link pr-1"><i className="ti-twitter-alt" /></a>
+                <a href="/contact-us" className="link pr-1"><i className="ti-google" /></a>
+                <a href="/contact-us" className="link pr-1"><i className="ti-instagram" /></a>
               </div>
             </div>
           </div>

@@ -4,17 +4,6 @@
   margin: 1% auto
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .logo {
   width: 40%
 }
@@ -77,4 +66,16 @@ label {
   padding: 2% 2%;
   text-align: center;
   margin: 2% auto;
+}
+
+.modal-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: auto;
+  transform: translate(-50%, -50%)!important;
+}
+
+.modal-backdrop.show {
+  opacity: 0.5;
 }

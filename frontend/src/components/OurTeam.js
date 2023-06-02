@@ -128,7 +128,7 @@ export default function OurTeam() {
 
             <div className="item">
               <div className="textmonial-item">
-                <img src="/team-pics/ghazal.jpeg" alt="Team member picture" className="avatar"/>
+                <img src="/team-pics/Ghazal.jpeg" alt="Team member picture" className="avatar"/>
                 <div className="des">
                   <p>"Believe you can, and you're halfway there."</p>
                   <div className="line" />

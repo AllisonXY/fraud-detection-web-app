@@ -9,7 +9,7 @@ import { RxCrossCircled } from "react-icons/rx";
 export default function FraudCheck() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [isOpen, setIsOpen] = useState(false);
-  const [isApproved, setIsApproved] = useState(false);
+  const [isApproved, setIsApproved] = useState();
 
   const handleClose = () => setIsOpen(false);
   const handleShow = () => setIsOpen(true);
@@ -39,49 +39,15 @@ export default function FraudCheck() {
       body: JSON.stringify(data)
     })
     .then(response => response.json())
-    .then(data => setIsApproved(data));
+    .then(data => setIsApproved(!data.fraud));
     window.scrollTo(0, 0);
     handleShow();
   }
 
-const onClick = (event) => {
-  const data = {
-    "AgeOfPolicyHolder": "21 to 25",
-    "Sex": "Female",
-    "MaritalStatus": "Married",
-    "AgentType": "External",
-    "BasePolicy": "Collision",
-    "Deductible": "400",
-    "PastNumberOfClaims": "1",
-    "YearMonth": "2023-04",
-    "AccidentArea": "Urban",
-    "Fault": "Policy Holder",
-    "WitnessPresent": "No",
-    "PoliceReportFiled": "No",
-    "VehicleCategory": "Sport",
-    "VehicleMake": "Saturn",
-    "AgeOfVehicle": "2 Years",
-    "VehiclePrice": "$20,000 to $29,000",
-    "PolicyType": "Sport - Collision"
-  }
-  fetch("/predict", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => setIsApproved(false));
-
-  handleShow();
-}
-
   return (
     <div className="container">
-      <h1 className="display-3 my-5">File a Claim</h1>
-      <button onClick={onClick}></button>
-      <p className="lead text-muted w-75 mx-auto">Fill out the short form below for a quick claim validation! Our machine learning algorithm validates client claims within 60 seconds!</p>
+      <h1 className="display-3 mt-5 mb-4">File a Claim</h1>
+      <p className="lead text-muted w-75 mx-auto my-2">Fill out the short form below for a quick claim validation! Our machine learning algorithm validates client claims within 60 seconds!</p>
       <form id="FraudForm" className='form mb-5' onSubmit={handleSubmit(onSubmit)}>
         <fieldset className="PolicyHolder border rounded bg-light">
           <p className="h3 text-center mt-2 mb-5">Policy Holder Details</p>

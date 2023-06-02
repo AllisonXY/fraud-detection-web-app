@@ -16,7 +16,6 @@ db_config = {
 connection = mysql.connector.connect(**db_config)
 cursor = connection.cursor()
 
-
 @app.route("/")
 def main():
     return "hello" 
@@ -31,9 +30,8 @@ def predict_page():
         print("----------------------------------------------")
         print(f"Hey, you are {('qualified' if not is_fraud else 'unqualified')} for the insurance claim.")
         print("----------------------------------------------")
-        result = str(is_fraud)  # only return str or dict
-        return result, 200    
-    return formData,200
+        return {"fraud" : is_fraud}, 200    
+    return formData, 200
     
 
 @app.route('/api/contact', methods=['POST', 'GET'])

@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useForm } from "react-hook-form";
 import { Modal, Button } from "react-bootstrap";
 import { IconContext } from "react-icons";
@@ -7,6 +7,9 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { RxCrossCircled } from "react-icons/rx";
 
 export default function FraudCheck() {
+  const scriptURL = "https://script.google.com/macros/s/AKfycbx7U_dYvRtE1KO21ya1DbRem1_mqFZU8iYfZKvwh6m4KfQjfghM4XOn3EzisNoZPr5-/exec"
+  const formRef = useRef(null)
+  const [loading, setLoading] = useState(false)
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [isOpen, setIsOpen] = useState(false);
   const [isApproved, setIsApproved] = useState(false);
@@ -31,6 +34,20 @@ export default function FraudCheck() {
   const onSubmit = (data) => {
     data.PolicyType = `${data.VehicleCategory} - ${data.BasePolicy}`
     console.log(data)
+    // e.preventDefault()
+        setLoading(true)
+
+        fetch(scriptURL, {
+        method: 'POST', 
+        body: new FormData(formRef.current),
+
+        }).then(res => {
+            console.log("SUCCESSFULLY SUBMITTED")
+            setLoading(false)
+        })
+        .catch(err => console.log(err))
+
+
     fetch("/predict", {
       method: "POST",
       headers: {
@@ -82,7 +99,7 @@ const onClick = (event) => {
       <h1 className="display-3 my-5">File a Claim</h1>
       <button onClick={onClick}></button>
       <p className="lead text-muted w-75 mx-auto">Fill out the short form below for a quick claim validation! Our machine learning algorithm validates client claims within 60 seconds!</p>
-      <form id="FraudForm" className='form mb-5' onSubmit={handleSubmit(onSubmit)}>
+      <form ref={formRef} name='submit-to-google-sheet' id="FraudForm" className='form mb-5' onSubmit={handleSubmit(onSubmit)}>
         <fieldset className="PolicyHolder border rounded bg-light">
           <p className="h3 text-center mt-2 mb-5">Policy Holder Details</p>
 

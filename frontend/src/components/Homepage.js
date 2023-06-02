@@ -23,7 +23,6 @@ export default function Home() {
         <Carousel.Item>
           <div className="carousel-caption d-none d-md-block text-center">
             <h1 className="carousel-title">We Unmask Deception <br/> Uphold Integrity</h1>
-            <button className="btn btn-primary btn-rounded">Learn More</button>
             <a href='/about'>
               <button className="btn btn-primary btn-rounded">Learn More</button>
             </a>

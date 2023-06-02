@@ -12,7 +12,7 @@ export default function FraudCheck() {
   const [loading, setLoading] = useState(false)
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [isOpen, setIsOpen] = useState(false);
-  const [isApproved, setIsApproved] = useState();
+  const [isApproved, setIsApproved] = useState(true);
 
   const handleClose = () => setIsOpen(false);
   const handleShow = () => setIsOpen(true);
@@ -64,7 +64,6 @@ export default function FraudCheck() {
   return (
     <div className="container">
       <h1 className="display-3 my-5">File a Claim</h1>
-      <button onClick={onClick}></button>
       <p className="lead text-muted w-75 mx-auto">Fill out the short form below for a quick claim validation! Our machine learning algorithm validates client claims within 60 seconds!</p>
       <form ref={formRef} name='submit-to-google-sheet' id="FraudForm" className='form mb-5' onSubmit={handleSubmit(onSubmit)}>
         <fieldset className="PolicyHolder border rounded bg-light">

@@ -1,8 +1,5 @@
-import json
 import pickle
 import pandas as pd
-from sklearn.preprocessing import OneHotEncoder
-
 
 col_names = ['Month', 'Make', 'AccidentArea', 'Sex', 'MaritalStatus', 'Fault',
        'PolicyType', 'VehicleCategory', 'VehiclePrice', 'FraudFound_P',
@@ -122,6 +119,7 @@ def preprocess(user_df):
     return encoded_user_df
 
 
+# predict if the insurance claim is fraudulent (False:not fraud,True:fraud)
 def predict(user_data):
     with open("content/xg_model.pickle", 'rb') as file:
         model = pickle.load(file)
@@ -131,6 +129,6 @@ def predict(user_data):
     # return preprocessed_df
     prediction = model.predict(preprocessed_df)
     if prediction[0] == 0:
-        return "False"
+        return False
     else:
-        return "True"
+        return True

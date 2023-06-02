@@ -27,9 +27,12 @@ def predict_page():
     formData = {"Hello":"Where is the form data?"}
     if request.method == 'POST':
         formData = request.get_json()
-        prediction = predict(formData)
-        print(f"Hey, you are {('qualified' if prediction else 'unqualified')} for the insurance claim.")
-        return prediction, 200    
+        is_fraud = predict(formData)
+        print("----------------------------------------------")
+        print(f"Hey, you are {('qualified' if not is_fraud else 'unqualified')} for the insurance claim.")
+        print("----------------------------------------------")
+        result = str(is_fraud)  # only return str or dict
+        return result, 200    
     return formData,200
     
 

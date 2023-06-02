@@ -4,7 +4,11 @@
   margin: 1% auto
 }
 
-.logo {
+.logo-sm {
+  width: 100%
+}
+
+.logo-lg {
   width: 40%
 }
 

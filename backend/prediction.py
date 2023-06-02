@@ -9,10 +9,12 @@ col_names = ['Month', 'Make', 'AccidentArea', 'Sex', 'MaritalStatus', 'Fault',
        'Deductible', 'PastNumberOfClaims', 'AgeOfVehicle', 'AgeOfPolicyHolder',
        'PoliceReportFiled', 'WitnessPresent', 'AgentType', 'Year','BasePolicy']
 
+# categorical columns that need to be one hot encoding
 categorical_cols =['Make','AccidentArea','Sex','MaritalStatus','Fault','PolicyType','VehicleCategory',
              'VehiclePrice','PastNumberOfClaims','AgeOfVehicle','AgeOfPolicyHolder',
              'PoliceReportFiled','WitnessPresent','AgentType','Year','BasePolicy']
 
+# for consistency in web form fields and dataset column names
 value_mappings = {
     "Widow": "Widowed",
     "more than 4": "More than 4",
@@ -54,13 +56,6 @@ month_mappings = {
     "12": "Dec",
 }
 
-res = {'AgeOfPolicyHolder':'18 to 20', 'Sex': 'Female', 'MaritalStatus': 'Single', 'AgentType': 'External',
-       'BasePolicy':'Liability', 'Deductible': '500', 'PastNumberOfClaims': '1', 'YearMonth': '2023-04',
-       'AccidentArea':'Urban', 'Fault': 'Policy Holder', 'WitnessPresent': 'Yes', 'PoliceReportFiled': 'Yes',
-       'VehicleCategory': 'Sport', 'VehicleMake': 'Porche', 'AgeOfVehicle': '7 Years',
-       'VehiclePrice': '$30,000 to $39,000', 'PolicyType': 'Sport - Liability'}
-
-
 # helper methods
 def extract_month(yearMonth):
     return yearMonth.split("-")[-1]
@@ -78,13 +73,12 @@ def rename_values(df, mappings=value_mappings):
         df[column] = df[column].map(mappings).fillna(df[column])
     return df
 
-# transform raw user input to df
+# convert raw user input to df
 def extract_user_df(json_string):
     json_string['FraudFound_P'] = 0
     data = {"0": json_string.values()}
     cols = json_string.keys()
     df = pd.DataFrame.from_dict(data, orient='index', columns=cols)
-    print(df)
     # extracting year & month value from YearMonth
     # and rename month column 
     df['Year'] = 1994     # df['YearMonth'].apply(extract_year) 
@@ -127,17 +121,15 @@ def preprocess(user_df):
     encoded_user_df.columns.values[[84, 85]] = ['No.1', 'Yes.1']
     return encoded_user_df
 
-# TODO: input response json
-def predict():
+
+def predict(user_data):
     with open("content/xg_model.pickle", 'rb') as file:
         model = pickle.load(file)
-
-    df = extract_user_df(res) #TODO substitute w/ response json
+    df = extract_user_df(user_data) 
     preprocessed_df = preprocess(df)
     preprocessed_df.drop(['FraudFound_P'], axis=1, inplace=True)  # drop label col 
     # return preprocessed_df
     prediction = model.predict(preprocessed_df)
-    print(prediction)
     if prediction[0] == 0:
         return "False"
     else:

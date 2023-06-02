@@ -1,8 +1,6 @@
-from flask import Flask, render_template, send_file, request
-from prediction import predict
-import pandas as pd 
+from flask import Flask, request
 import mysql.connector
-
+from prediction import predict
 
 app = Flask(__name__) 
 
@@ -10,7 +8,7 @@ app = Flask(__name__)
 db_config = {
     "host": "localhost",
     "user": "root",
-    "password": "1",
+    "password": "admin",
     "database": "Fraud_detect"
 }
 
@@ -24,31 +22,16 @@ def main():
     return "hello" 
 
 
-# user_data = [['Dec','Honda','Rural','Female','Divorced','Policy Holder',
-#              'Sedan - All Perils','Sedan','20000 to 29000','1',
-#              '300','none','2 Years','16 to 17',
-#              'No','Yes','Internal','1995','Collision']]
-
 @app.route("/predict", methods=['POST', 'GET'])
 def predict_page():
-    prediction = predict()  #TODO: pending reponse json
-    return prediction
-
-    # formData = {"hello":"where is form data?"}
-    # if request.method == 'POST':
-    #     formData = request.get_json()
-    #     print(formData)
-    #     prediction = predict(formData)
-    #     # Run Model and Return True Or Fals
-    #     # df=empty_df('content/cleaned_data.csv') #model dataframe
-    #     # deductible = int(formData["Deductible"]) 
-    #     # result = preprocess(formData.values())
-    #     # prediction = predict(model, df, result, deductible) #run prediction
-
-    #     return prediction.to_json(orient='split'), 200    
-    # return formData,200
+    formData = {"Hello":"Where is the form data?"}
+    if request.method == 'POST':
+        formData = request.get_json()
+        prediction = predict(formData)
+        print(f"Hey, you are {('qualified' if prediction else 'unqualified')} for the insurance claim.")
+        return prediction, 200    
+    return formData,200
     
-
 
 @app.route('/api/contact', methods=['POST', 'GET'])
 def create_contact():
